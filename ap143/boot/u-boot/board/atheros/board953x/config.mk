@@ -1,0 +1,23 @@
+# ROM version
+ifeq ($(COMPRESSED_UBOOT),1) #{
+TEXT_BASE = 0x80010000
+BOOTSTRAP_TEXT_BASE = 0x9f000000
+else #}{
+TEXT_BASE = 0x9f000000
+endif #}
+# TEXT_BASE = 0xbf000000
+
+# SDRAM version
+# TEXT_BASE = 0x80000000
+
+# RAM version
+# TEXT_BASE = 0x83fc0000
+# TEXT_BASE = 0x80100000
+
+export BOARD_EXTRA_OBJS_tmp =
+
+BOARD_EXTRA_OBJS_tmp += $(TOPDIR)/board/$(BOARDDIR)/extra.o
+
+ifeq ($(COMPRESSED_UBOOT),1) #{
+BOARD_EXTRA_OBJS = $(BOARD_EXTRA_OBJS_tmp)
+endif
