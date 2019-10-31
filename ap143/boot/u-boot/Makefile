@@ -49,7 +49,7 @@ VENDOR=
 TOPDIR	:= $(shell if [ "$$PWD" != "" ]; then echo $$PWD; else pwd; fi)
 export	TOPDIR
 
-BUILDVERSION=$(shell if test -e $(KERNELPATH)/ath_version.mk ; then cat $(KERNELPATH)/ath_version.mk | sed s/EXTRAVERSION=-LSDK-//g; fi)
+BUILDVERSION = 9.5.3.16
 
 ifndef COMPRESSED_UBOOT
 COMPRESSED_UBOOT = 0
