@@ -69,7 +69,7 @@ of your router's full chip dump and set the same or changed values near the end 
 
 5. Overwrite the first 128kb of your router's full chip dump, before flashing to a chip:
 
-        dd if=./../128kb.bin of=./path_to/dump.bin
+        dd if=./../128kb.bin of=./path_to/dump.bin conv=notrunc
         sudo ./path_to/flashrom -p ch341a_spi -c "MX25L3206E/MX25L3208E" -w ./dump.bin -V
 
 Happy Hacking!
