@@ -33,7 +33,7 @@ Build Instructions
 1. All build targets are in ./wr841nv9_en_gpl/build/Makefile ,
 you should enter this directory to build components:
 
-        cd ./path_to/wr841nv9_en_gpl/build/Makefile
+        cd ./path_to/wr841nv9_en_gpl/build/
 
 2. Pre-built 32-bit uClibc gcc-4.3.3 toolchain is available in this package,
 however its' source code is available only at toolchain_src of complete package.
