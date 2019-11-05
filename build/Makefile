@@ -128,7 +128,12 @@ fakeroot_build:
 	cd $(TOPDIR)/util/fakeroot/fakeroot-1.18.2 && make install
 	
 ######## prepare toolchain ########
-toolchain_prep:
+lzma:
+	cd $(TOPDIR)/util/lzma && \
+	rm -rf ./lzma-4.32.7/ && tar -zxvf ./lzma-4.32.7.tar.gz && \
+	cd ./lzma-4.32.7/ && ./configure && make
+
+toolchain_prep: lzma
 	@echo Uncompressing toolchain, please wait for a few minutes ...
 	cd $(TOPDIR)/toolchain && \
 	tar -jxf gcc-4.3.3.tar.bz2 && \
