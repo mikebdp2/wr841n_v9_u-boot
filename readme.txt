@@ -13,15 +13,15 @@ with multilib ( https://wiki.archlinux.org/index.php/Official_repositories#multi
 please get a complete package from https://github.com/mikebdp2/wr841nv9_en_gpl
 
 tar -zxvf ./wr841nv9_en_gpl.tar.gz
-cd ./wr841nv9_en_gpl/
+cd ./wr841nv9_en_gpl/ && rm -rf ./build/scripts/
 rm -rf ./ap143/apps/ && rm -rf ./ap143/linux/ && rm -rf ./apps/
 rm -rf ./filesystem/ && rm -rf ./kernel_modules/ && rm -rf ./pb92/
 rm -rf ./toolchain_src/ && rm -rf ./util/ && rm -rf ./web_server/
 mkdir ./util/ && mkdir ./util/lzma/ && mkdir ./util/lzma/bin/
-which lzma
-# /usr/bin/lzma
-ln -s /usr/bin/lzma ./util/lzma/bin/lzma
-nano ./readme.txt
+cd ./util/lzma/bin/ && ln -s ./../lzma-4.32.7/src/lzma/lzma ./lzma
+cd ./../ && wget https://tukaani.org/lzma/lzma-4.32.7.tar.gz
+cd ./../../ && nano ./build/Makefile # add "lzma" target
+nano ./readme.txt # add this info
 
 BOARD_TYPE definitions
 1. ap143: TL-WR841N/ND 9.0
